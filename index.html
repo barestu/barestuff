@@ -86,7 +86,7 @@
     .content {
       width: 70%;
       margin: 0px auto;
-      padding-bottom: 100px;
+      padding: 100px 0;
     }
 
     .header .intro {
@@ -148,21 +148,12 @@
     .footer p {
       color: rgb(235, 235, 235);
       text-decoration: none;
-      font-size: 16px; 
+      font-size: 70%; 
       text-align: center;
     }
   
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script>
-    $(window).on('scroll', function() {
-      if ($(window).scrollTop()) {
-        $('nav').addClass('dark')
-      } else {
-        $('nav').removeClass('dark')
-      }
-    })
-  </script>
 </head>
 <body>
   <div class="navbar">
@@ -181,7 +172,7 @@
   <div class="header">
     <div class="intro">
       <h1>Hello World.</h1>
-      <a class="btn" href="#">Get Started</a>
+      <a class="btn" id="get-started" href="#">Get Started</a>
     </div>
   </div>
 
@@ -197,5 +188,22 @@
     <p>Created by: Fandy Barestu</p>
     <p>Contact information: barestu.fandy@gmail.com</p>
   </div>
+
+  <script>
+    $(window).on('scroll', function() {
+      if ($(window).scrollTop()) {
+        $('nav').addClass('dark')
+      } else {
+        $('nav').removeClass('dark')
+      }
+    })
+
+    $('#get-started').on('click', function() {
+      console.log('clicked')
+      $('html, body').animate({
+        scrollTop: $(".content").offset().top
+      }, 700);
+    })
+  </script>
 </body>
 </html>
